@@ -3,7 +3,7 @@ steps:
     entrypoint: "npm"
     args: ["install"]
   - name: "bash"
-    script: "echo MY_SECRET_KEY=${_MY_SECRET_KEY} > .env"
+    script: "echo MY_SECRET_KEY=static-key > .env"
   # Build the application
   - name: "node:14"
     entrypoint: "npm"
