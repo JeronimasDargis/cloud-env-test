@@ -9,7 +9,7 @@ steps:
   # Export the application to a static site
   - name: "node:14"
     entrypoint: "npm"
-    args: ["run", "export"]
+    args: ["run", "generate"]
   - name: "gcr.io/cloud-builders/gcloud"
     args: ["app", "deploy"]
 timeout: "1600s"
