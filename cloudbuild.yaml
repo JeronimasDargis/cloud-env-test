@@ -10,8 +10,8 @@ steps:
   - name: "node:14"
     entrypoint: "npm"
     args: ["run", "generate"]
-  - name: node:10.15.1
-    entrypoint: npm
+  - name: "node:14"
+    entrypoint: "npm"
     args: ["run", "create-env"]
     env:
       - "MY_SECRET_KEY=${_MY_SECRET_KEY}"
