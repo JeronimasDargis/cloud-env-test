@@ -1,21 +1,15 @@
 steps:
-  # Install dependencies
-  - name: 'node:14'
-    entrypoint: 'npm'
-    args: ['install']
+  - name: "node:14"
+    entrypoint: "npm"
+    args: ["install"]
   # Build the application
-  - name: 'node:14'
-    entrypoint: 'npm'
-    args: ['run', 'build']
+  - name: "node:14"
+    entrypoint: "npm"
+    args: ["run", "build"]
   # Export the application to a static site
-  - name: 'node:14'
-    entrypoint: 'npm'
-    args: ['run', 'export']
-
-# Deploy the application to App Engine
-- name: 'gcr.io/cloud-builders/gcloud'
-  args: [
-    'app',
-    'deploy',
-  ]
+  - name: "node:14"
+    entrypoint: "npm"
+    args: ["run", "export"]
+  - name: "gcr.io/cloud-builders/gcloud"
+    args: ["app", "deploy"]
 timeout: "1600s"
