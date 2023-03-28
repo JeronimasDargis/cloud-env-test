@@ -10,11 +10,11 @@ steps:
   - name: "node:14"
     entrypoint: "npm"
     args: ["run", "generate"]
-  - name: "bash"
-    script: "echo MY_SECRET_KEY=${_MY_SECRET_KEY} > .env"
+  - name: "node:14"
+    entrypoint: "npm"
     env:
       - "MY_SECRET_KEY=${_MY_SECRET_KEY}"
-      - "NPM_TOKEN=${_NPM_TOKEN}"
+    args: ["run", "create-env"]
   - name: "gcr.io/cloud-builders/gcloud"
     args: ["app", "deploy", "--version=staging", "--no-promote"]
 timeout: "1600s"
