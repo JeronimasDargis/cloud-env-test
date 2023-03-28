@@ -11,5 +11,5 @@ steps:
     entrypoint: "npm"
     args: ["run", "generate"]
   - name: "gcr.io/cloud-builders/gcloud"
-    args: ["app", "deploy", "--version=STAGING", "--no-promote"]
+    args: ["app", "deploy", "--version=staging", "--no-promote"]
 timeout: "1600s"
