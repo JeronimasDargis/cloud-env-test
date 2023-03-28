@@ -1,17 +1,12 @@
 <template>
   <div>
-    <p>TEST 123</p>
+    <p>TEST 123 {{ config.MY_SECRET_KEY }}</p>
     <NuxtWelcome />
   </div>
 </template>
 
-<script>
-import { defineComponent } from "@vue/composition-api";
-
-export default defineComponent({
-  setup() {
-    const config = useRuntimeConfig();
-    console.log("config:", config.MY_SECRET_KEY);
-  },
-});
+<script setup>
+let config = useState("config", () => null);
+config = useRuntimeConfig();
+console.log("config:", config.MY_SECRET_KEY);
 </script>
