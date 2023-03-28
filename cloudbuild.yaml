@@ -1,4 +1,7 @@
 steps:
+  - name: bash
+    args: ["-c", "echo //registry.npmjs.org/:_authToken=$$NPM_TOKEN > .npmrc"]
+    secretEnv: ["NPM_TOKEN"]
   - name: "node:14"
     entrypoint: "npm"
     args: ["install"]
@@ -18,4 +21,8 @@ steps:
   #     - "NPM_TOKEN=${_NPM_TOKEN}"
   - name: "gcr.io/cloud-builders/gcloud"
     args: ["app", "deploy", "--version=staging", "--no-promote"]
+availableSecrets:
+  secretManager:
+    - versionName: projects/$PROJECT_ID/secrets/NPM_TOKEN/versions/latest
+      env: "NPM_TOKEN"
 timeout: "1600s"
