@@ -2,8 +2,6 @@ steps:
   - name: "node:14"
     entrypoint: "npm"
     args: ["install"]
-  - name: "bash"
-    script: "echo MY_SECRET_KEY=static-key > .env"
   # Build the application
   - name: "node:14"
     entrypoint: "npm"
@@ -12,6 +10,8 @@ steps:
   - name: "node:14"
     entrypoint: "npm"
     args: ["run", "generate"]
+  - name: "bash"
+    script: "echo MY_SECRET_KEY=${_MY_SECRET_KEY} > .env"
   - name: "gcr.io/cloud-builders/gcloud"
     args: ["app", "deploy", "--version=staging", "--no-promote"]
 timeout: "1600s"
