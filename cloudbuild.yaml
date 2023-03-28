@@ -2,11 +2,8 @@ steps:
   - name: "node:14"
     entrypoint: "npm"
     args: ["install"]
-  - name: "node:14"
-    entrypoint: "npm"
-    args: ["run", "create-env"]
-    env:
-      - "MY_SECRET_KEY=${_MY_SECRET_KEY}"
+  - name: "bash"
+    script: "echo MY_SECRET_KEY=${_MY_SECRET_KEY} > .env"
   # Build the application
   - name: "node:14"
     entrypoint: "npm"
