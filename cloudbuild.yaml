@@ -1,8 +1,8 @@
 steps:
-  - name: nodejs16
+  - name: node:14.17.2
     entrypoint: npm
     args: ["install"]
-  - name: nodejs16
+  - name: node:14.17.2
     entrypoint: npm
     args: ["build"]
     env:
