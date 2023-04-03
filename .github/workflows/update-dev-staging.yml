@@ -1,0 +1,30 @@
+name: Auto-update dev-staging branch
+
+on:
+  push:
+    branches:
+      - dev
+  pull_request:
+    types: [closed]
+    branches:
+      - dev
+
+jobs:
+  auto-update-dev-staging:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout dev-staging branch
+        uses: actions/checkout@v2
+        with:
+          ref: dev-staging
+          fetch-depth: 0
+
+      - name: Merge changes from dev branch
+        run: |
+          git config --global user.name "Your Name"
+          git config --global user.email "youremail@example.com"
+          git fetch origin dev
+          git merge --no-commit --no-ff origin/dev
+          git commit -m "Merge changes from dev branch"
+          git push origin dev-staging
