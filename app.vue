@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Secret key 1111-1111 {{ config.MY_SECRET_KEY }}</p>
+    <p>Secret key 1111-11111 {{ config.MY_SECRET_KEY }}</p>
     <NuxtWelcome />
   </div>
 </template>
