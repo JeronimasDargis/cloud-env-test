@@ -1,6 +1,10 @@
 steps:
   - name: bash
-    args: ["-c", "echo //npm.pkg.github.com/:_authToken=$$NPM_TOKEN > .npmrc"]
+    args:
+      [
+        "-c",
+        "@rcco:registry=https://npm.pkg.github.com$'\n'echo //npm.pkg.github.com/:_authToken=$$NPM_TOKEN > .npmrc",
+      ]
     secretEnv: ["NPM_TOKEN"]
   - name: "node:14"
     entrypoint: "npm"
