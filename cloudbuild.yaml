@@ -3,7 +3,7 @@ steps:
     args:
       [
         "-c",
-        "@rcco:registry=https://npm.pkg.github.com$'\n'echo //npm.pkg.github.com/:_authToken=$$NPM_TOKEN > .npmrc",
+        "echo @rcco:registry=https://npm.pkg.github.com$'\n'//npm.pkg.github.com/:_authToken=$$NPM_TOKEN > .npmrc",
       ]
     secretEnv: ["NPM_TOKEN"]
   - name: "node:14"
